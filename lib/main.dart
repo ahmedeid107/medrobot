@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:medrobot_dradham/Route/AppPages.dart';
 import 'view/login_screen.dart';
+import 'package:screen_protector/screen_protector.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +41,14 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    detectScreenCapture();
+    preventScreenCapture();
+
+    // detectScreenCapture();
+  }
+preventScreenCapture() async {
+    await ScreenProtector.protectDataLeakageWithColor(Colors.white);
+
+    await ScreenProtector.preventScreenshotOn();
   }
 
   @override
