@@ -12,11 +12,12 @@ import 'package:screen_protector/screen_protector.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // تهيئة Hive
-  await Hive.initFlutter();
+  await Hive.initFlutter()
+  ;
 
   // فتح الصندوق الذي ستستخدمه لتخزين تقدم الفيديو
   await Hive.openBox('video_progress');
-  runApp(const MyApp());
+  runApp(const MyApp(),);
 }
 
 class MyApp extends StatefulWidget {
@@ -55,8 +56,7 @@ preventScreenCapture() async {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(360, 690),
-      child: GetMaterialApp(
-        theme: ThemeData(
+      child: GetMaterialApp(theme: ThemeData(
           appBarTheme: AppBarTheme(
             iconTheme: IconThemeData(
               color: Colors.white,
